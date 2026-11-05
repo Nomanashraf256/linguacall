@@ -1,0 +1,6 @@
+# Replace PUBLIC_IP with Oracle instance public IPv4 address, dots unchanged.
+# sslip.io resolves the domain to your public IP. Public DNS and ports 80/443 are required.
+PUBLIC_IP.sslip.io {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:8000
+}

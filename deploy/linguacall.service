@@ -1,0 +1,17 @@
+[Unit]
+Description=LinguaCall AI and WebRTC signaling backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/linguacall/ai-server
+EnvironmentFile=/opt/linguacall/ai-server/.env
+ExecStart=/opt/linguacall/ai-server/.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000 --workers 1
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=600
+MemoryMax=9G
+
+[Install]
+WantedBy=multi-user.target
